@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en" class="h-100">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.87.0">
+    <title>Cover Template · Bootstrap v5.1</title>
+
+    
+   
+
+
+    
+
+    <!-- Bootstrap core CSS -->
+{% comment %} <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet"> {% endcomment %}
+{# Load the tag library #}{% load static %}
+{% comment %} {% load bootstrap5 %} {% endcomment %}
+ <link rel="stylesheet" href="{% static 'css/index.css' %}">
+
+{# Load CSS and JavaScript #}
+{% comment %} {% bootstrap_css %} {% endcomment %}
+<link rel="stylesheet" href="{% static 'css/umbra.css' %}">
+{% comment %} <link rel="stylesheet" href="{% static 'css/auth.css' %}"> {% endcomment %}
+
+
+
+
+
+{# Display a form #}
+
+    
+    <!-- Custom styles for this template -->
+    {% comment %} <link href="cover.css" rel="stylesheet"> {% endcomment %}
+  </head>
+  <body class="d-flex h-100 text-center text-dark ">
+    
+<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+
+{% comment %} {% bootstrap_javascript %} {% endcomment %}
+
+{# Display django.contrib.messages as Bootstrap alerts #}
+{% comment %} {% bootstrap_messages %} {% endcomment %}
+               {% include 'includes/formcontent.html' %}
+
+     <!-- Header -->
+        <div id="header">
+
+
+            <div class="siteId">
+                <img src=" {% static 'images/site-id.png' %} " alt="">
+            </div>
+
+
+            <!-- Primary navigation -->
+
+                 <!-- Hamburger menu -->
+                 <!-- <audio id="audio" src="audio/pop.mp3"></audio> -->
+              
+
+
+
+                 <!-- Nav items -->
+                <div class="dropbtn">
+                    <ul>
+                        <li>
+
+                            <div class="nav-content">
+                                <div class="icon">
+                                    <img src=" {% static 'images/homeicon.svg' %} ">
+                                </div>
+                                <a href="{% url 'home' %}">Home</a>
+                            </div>
+
+                        </li>
+
+
+                        <li>
+
+                            <div class="nav-content">
+                                <div class="icon">
+                                    <img src=" {% static 'images/menuicon.svg' %} ">
+                                </div>
+                                <a href="#">Menu</a>
+                            </div>
+                            
+                        </li>
+
+
+                        <li>
+                            <div class="nav-content">
+                                <div class="icon">
+                                    <img src=" {% static 'images/walleticon.svg' %} ">
+                                </div>
+                                <a href="#">Pricing</a>
+                            </div>
+                            
+                        </li>
+
+
+                        <li>
+                        
+                        
+                             <div class="nav-content">
+                                <div class="icon">
+                                    <img src=" {% static 'images/abouticon.svg' %} ">
+                                </div>
+                                <a href="#">About</a>
+                            </div> 
+                        
+
+                        </li> 
+                        <li> 
+                    {% if request.user.is_authenticated %}
+                    
+                   <button class="login">welcome {{request.user.username}}!</button> 
+                    <a style="margin:5px 0 !important;" href=" {% url 'logout' %} "><button class="login" style="width: 100%; margin: 0px 0px 15px 0px; background-color: rgb(251, 221, 221); border: 1px solid #fb1f4c;">Log out</button> </a> 
+
+                    {% else %}
+                    
+                           <a href=" {% url 'signup' %} "><button class="login" style="width: 100%; margin: 0px 0px 15px 0px; background-color: rgb(251, 221, 221); border: 1px solid #fb1f4c;">Log In</button> </a> 
+                            <button class="signin" style="width: 100%; margin-top: 0; ">Create Account</button>
+                        </li>
+                    {% endif %}
+                        
+                            
+                       
+                        <!-- <button>Create Account</button> -->
+
+                        <!-- <li><div class="icon"><img src=" {% static '' %} images/helpicon.svg"></div><a href="#">Help</a></li> -->
+                    </ul>
+
+                </div>
+
+                {% if request.user.is_authenticated %}
+                                                      <span class="form-toggle" onclick="dashSwitch">
+                          <a href="logout"> <button>Log Out {{request.user.username}}</button></a>
+                               </span>                
+                            {% else %}
+                                                        <span class="form-toggle" onclick="dashSwitch">
+                           <img src=" {% static 'images/dashboardicon.svg' %} " alt="dashboard" />
+                               </span>                            
+                        {% endif %}  
+            
+
+            <div class="ham-nav" onclick="toggleanimate">
+                <div class="nav-bar"></div>
+                <div class="nav-bar"></div>
+                <div class="nav-bar"></div>
+            </div>
+          
+        </div>
+{% block content %}
+
+{% endblock content %}
+
+
+        <div id="footer">
+            <p style="font-family: Aisha Blush;">Be Social</p>
+        </div>
+    </div>
+
+    
+  </body>
+
+ <script src="{% static 'js/toggle.js' %}"></script>
+  <script src="{% static 'js/umbra.js' %}"></script>
+</html>

@@ -1,0 +1,45 @@
+{% extends 'includes/base.html' %}
+
+{% load static %}
+{% block content %}
+
+
+   <div id="main">
+
+       
+
+       
+        <!-- backdrop -->
+        <div class="back-drop" onclick="toggleanimate()"></div>
+
+
+
+        <!-- restuarant content -->
+        <div id="content">
+
+            <div class="lc">
+                <img src=" {% static 'images/landing.png' %} " alt="">
+            </div>
+
+             <!-- authentication form -->
+        <!-- Form -->
+        
+           
+                
+
+            <div class="rc">
+                <div class="text-box">
+                    <h1>Online Doings</h1>
+                    <p>
+                        Amazing Fresh Delights Prepared Specially For You. Directly Order for Food
+                    </p>
+
+                    <button>Order Now</button>
+                </div>
+            </div>
+        </div>
+
+ 
+
+{% endblock content %}
+  

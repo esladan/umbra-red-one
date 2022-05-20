@@ -1,0 +1,79 @@
+
+{% extends 'includes/base.html' %}
+{% load static %}
+{% block content %}
+
+ <body class="text-center">
+    
+ <div style="display:block;" class="formbox">
+                    <div class="head">
+                        <!-- <div class="formImg"> -->
+                            <!-- <svg class="dashIcon">
+                                <use xlink:href="/img/sprite.svg#dashboard" />
+                            </svg>  -->
+                            <div class="dashIcon">
+                                <img src="{% static 'images/site-id-01.png' %}" width="80" alt="Dashboard" />
+                            </div>
+                            
+                        <!-- </div> -->
+                        <!-- <h1>DASHBOARD</h1> -->
+                    </div>
+
+
+                    <div id="dbody">
+                        <form action="/signin" method="POST" id="Form">
+                        {% csrf_token %}
+                            <!-- username entry -->
+                            <div class="usr-box">
+                                <div class="usr-icon">
+                                    <img src="{% static 'images/usrnameicon.svg' %} " alt=""/>
+                                </div>
+                                <input type="text" name="username" placeholder="Username" required>
+                            </div>
+
+                            <!-- password entry -->
+                            <div class="rmv">
+                            <div class="usr-box ">
+                                <div class="usr-icon">
+                                    <img src=" {% static 'images/pwicon.svg' %} " alt=""/>
+                                </div>
+                                <input type="Email" name="email" placeholder="Email" required>
+                            </div>
+                            </div>
+
+                               <!-- password entry -->
+                            <div class="usr-box">
+                                <div class="usr-icon">
+                                    <img src=" {% static 'images/pwicon.svg' %} " alt=""/>
+                                </div> 
+                                <input type="password" name="password" placeholder="Password" required>
+                            </div>
+
+                            
+        
+                            <div class="extras">
+                                <!-- <a href="ForgotPassword">
+                                    <h3>Forgot password</h3>
+                                </a> -->
+                                <input id="action-btn" type="submit" value="Login">
+                                <a href="#" id="Switch">
+                                    <h2 class="switchText">Already have an account? Login</h3>
+                                </a>
+                                <a href="{% url 'reset-password' %}" id="Switch">
+                                    <h2 class="switchText">Forgot Password</h3>
+                                </a>
+                            </div>
+                        
+                        </form>
+                    </div>
+                </div>  
+
+
+
+{% endblock content %}
+  
+ 
+
+
+
+  

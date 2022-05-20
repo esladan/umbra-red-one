@@ -1,0 +1,15 @@
+body{
+    background-color: white !important;
+    /* display: none !important; */
+}
+input{
+    color: black;
+}
+.form-floating{
+    color: black !important;
+}
+.image{
+    width: 100p;
+    height: 200px;
+    background-color: green;
+}
